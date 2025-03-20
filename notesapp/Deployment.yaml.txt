@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: todo-deployment
+spec:
+   replicas: 3
+   selector:      
+    matchLabels:
+     name: deployment
+   template:
+     metadata:
+       name: pods
+       labels:
+         name: deployment
+     spec:
+      containers:
+        - name: todo-app
+          image: sumith265/my-note-app-updated
+          ports:
+          - containerPort: 8000
